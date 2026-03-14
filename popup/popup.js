@@ -55,6 +55,11 @@ async function clearPendingPlan() {
   await browser.storage.local.remove(PLAN_STORAGE_KEY);
 }
 
+async function clearDraft() {
+  queryInput.value = "";
+  await browser.storage.local.set({ [DRAFT_STORAGE_KEY]: "" });
+}
+
 function setBusy(isBusy) {
   runButton.disabled = isBusy;
   executeButton.disabled = isBusy || pendingActions.length === 0;
@@ -211,6 +216,7 @@ async function executeProposal() {
     });
 
     await clearPendingPlan();
+    await clearDraft();
     renderPlanState();
     setStatus(statusMessage, `Executed ${result.executed} action${result.executed === 1 ? "" : "s"}.`);
   } catch (error) {
