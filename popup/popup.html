@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart Tab Manager</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>Smart Tab Manager</h1>
+        <button id="settingsButton" class="icon-button" type="button" aria-label="Open settings">
+          <span aria-hidden="true">⚙</span>
+        </button>
+      </header>
+
+      <section id="queryView" class="view" aria-label="Query screen" hidden>
+        <section id="composerPanel" class="query-panel" aria-label="Query editor">
+          <label class="query-field" for="queryInput">
+            <span class="query-label">Query</span>
+            <textarea
+              id="queryInput"
+              rows="10"
+              placeholder="Describe what you want to do with your tabs..."
+            ></textarea>
+          </label>
+          <section class="query-actions" aria-label="Query actions">
+            <button id="runButton" class="primary-button" type="button">Plan Actions</button>
+            <button id="clearButton" class="ghost-button" type="button">Clear</button>
+          </section>
+        </section>
+
+        <section id="responsePanel" class="response-panel" aria-label="Gemini response" hidden>
+          <div class="panel-header">
+            <h2>Proposed Actions</h2>
+            <span id="responseMeta" class="panel-meta"></span>
+          </div>
+          <p id="responseOutput" class="response-output"></p>
+          <ul id="actionList" class="action-list"></ul>
+          <div class="response-actions">
+            <button id="newQueryButton" class="ghost-button" type="button">New Query</button>
+            <button id="executeButton" class="primary-button" type="button">Execute</button>
+          </div>
+        </section>
+
+        <p id="statusMessage" class="status-message" aria-live="polite"></p>
+      </section>
+
+      <section id="settingsPanel" class="settings-panel view" aria-label="LLM settings" hidden>
+        <div class="panel-header">
+          <h2>Settings</h2>
+        </div>
+
+        <label class="settings-field" for="geminiApiKeyInput">
+          <span class="query-label">Gemini API Key</span>
+          <input id="geminiApiKeyInput" type="password" placeholder="AIza..." autocomplete="off">
+        </label>
+
+        <label class="settings-field" for="geminiModelInput">
+          <span class="query-label">Gemini Model</span>
+          <input id="geminiModelInput" type="text" placeholder="gemini-3-flash-preview" autocomplete="off">
+        </label>
+
+        <div class="settings-actions">
+          <button id="saveSettingsButton" class="primary-button" type="button">Save</button>
+          <p id="settingsStatus" class="status-message" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

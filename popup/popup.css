@@ -1,0 +1,242 @@
+html {
+  width: 100%;
+  min-width: 0;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #08111c;
+  --panel: rgba(14, 24, 38, 0.92);
+  --panel-strong: rgba(18, 31, 48, 0.98);
+  --line: rgba(130, 161, 201, 0.22);
+  --text: #eef4ff;
+  --muted: #8fa3bd;
+  --accent: #66d9c1;
+  --accent-strong: #8ef1db;
+  --shadow: rgba(0, 0, 0, 0.45);
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  width: 360px;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(102, 217, 193, 0.18), transparent 38%),
+    radial-gradient(circle at top right, rgba(111, 149, 255, 0.18), transparent 34%),
+    linear-gradient(180deg, #09121e 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+.app {
+  padding: 14px;
+  width: 100%;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.query-actions,
+.settings-actions,
+.panel-header,
+.response-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+h1 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.query-panel,
+.query-field {
+  display: block;
+  width: 100%;
+}
+
+.query-panel {
+  margin-bottom: 14px;
+}
+
+.query-actions,
+.response-panel,
+.settings-panel {
+  margin-bottom: 12px;
+}
+
+.query-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.query-field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 13px;
+  background: rgba(6, 13, 24, 0.86);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.45;
+  resize: vertical;
+  min-height: 220px;
+}
+
+.query-field textarea:focus {
+  outline: 2px solid rgba(102, 217, 193, 0.22);
+  border-color: var(--accent);
+}
+
+.query-help {
+  margin: 10px 2px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.settings-field {
+  display: block;
+  width: 100%;
+}
+
+.settings-field + .settings-field {
+  margin-top: 12px;
+}
+
+.settings-field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 12px;
+  background: rgba(6, 13, 24, 0.86);
+  color: var(--text);
+  font: inherit;
+}
+
+.settings-field input:focus {
+  outline: 2px solid rgba(102, 217, 193, 0.22);
+  border-color: var(--accent);
+}
+
+.query-actions {
+  margin-top: 14px;
+  justify-content: flex-start;
+}
+
+.settings-actions {
+  margin-top: 18px;
+}
+
+.response-panel,
+.settings-panel {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-strong) 100%);
+  box-shadow: 0 18px 40px -28px var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.panel-header {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.panel-meta,
+.status-message {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.response-output {
+  margin: 0 0 12px;
+  font: inherit;
+  line-height: 1.5;
+}
+
+.action-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.action-list:empty {
+  display: none;
+}
+
+.action-list li + li {
+  margin-top: 8px;
+}
+
+.response-actions {
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 12px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  max-width: 100%;
+}
+
+.ghost-button {
+  background: rgba(130, 161, 201, 0.12);
+  color: var(--text);
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #08111c;
+}
+
+.icon-button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(130, 161, 201, 0.12);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
